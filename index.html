@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Traditional Website</title>
+
+  <!-- Linking CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop hidden>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+</head>
+
+<body onload="hideLoader()">
+
+<!-- Loader -->
+<div id="loader"></div>
+
+<!-- Marquee Title -->
+<div class="marquee">
+  <div class="marquee-text">🌟 Welcome to My Traditional Website 🌟</div>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('contact')">Contact</a>
+  <a onclick="showSection('blog')">Blog</a>
+  <a onclick="showSection('comment')">Comment</a>
+  <a onclick="showSection('about')">About</a>
+</nav>
+
+<!-- Sections -->
+
+<div id="home" class="content active" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');">
+  <h1>Welcome to My Website</h1>
+</div>
+
+<div id="contact" class="content" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1350&q=80');">
+  <div class="contact">
+    <h2>Contact Me</h2>
+    <div class="social-links">
+      <a href="https://discord.com/jahidhasan_dis" target="_blank">
+        <img src="https://img.icons8.com/fluency/48/000000/discord-logo.png" alt="Discord">
+      </a>
+      <a href="https://instagram.com/jahidhasan2.0ff" target="_blank">
+        <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram">
+      </a>
+      <a href="https://twitter.com/jahidhasan_tw" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter">
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61575663205505" target="_blank">
+        <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="blog" class="content" style="background-image: url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1350&q=80');">
+  <h2>Favorite Videos</h2>
+  <iframe width="350" height="215" src="https://www.youtube.com/embed/SK8jENUAylI" frameborder="0" allowfullscreen></iframe>
+  <iframe width="350" height="215" src="https://www.youtube.com/embed/kzVmU_Lv8tQ" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="comment" class="content" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1350&q=80');">
+  <div class="contact">
+    <h2>Leave a Comment</h2>
+    <form id="commentForm">
+      <input type="text" name="CompanyName" placeholder="Company Name" required><br>
+      <input type="url" name="CompanyWebsite" placeholder="Company Website" required><br>
+      <input type="email" name="Email" placeholder="Email" required><br>
+      <button type="submit">Submit</button>
+    </form>
+    <p id="thankYouMessage" style="display:none;color:lightgreen;">Thank you for your comment!</p>
+  </div>
+</div>
+
+<div id="about" class="content" style="background-image: url('https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1350&q=80');">
+  <h2>About Me</h2>
+  <p>My name is MD JAHID HASAN. I am a web developer. Thank you for visiting!</p>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Jahid Hasan | Traditional Website | All Rights Reserved
+</footer>
+
+<!-- Back to Top Button -->
+<button onclick="topFunction()" id="topBtn">⬆️</button>
+
+<!-- Linking JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
