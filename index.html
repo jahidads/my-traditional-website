@@ -5,21 +5,246 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Traditional Website</title>
 
-  <!-- Linking CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Reset */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background-color: #1e1e1e;
+      color: #f5f5f5;
+    }
 
-  <!-- Background Music -->
-  <audio id="bgMusic" autoplay loop hidden>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    Your browser does not support the audio tag.
-  </audio>
+    /* Marquee */
+    .marquee {
+      background: #111;
+      color: gold;
+      padding: 12px 0;
+      font-size: 1.2em;
+      text-align: center;
+      border-bottom: 2px solid gold;
+      overflow: hidden;
+    }
 
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 12s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: #2c2c2c;
+      display: flex;
+      justify-content: center;
+      padding: 15px 10px;
+      border-bottom: 1px solid gold;
+    }
+
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 12px;
+      padding: 10px 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: gold;
+      color: #222;
+    }
+
+    /* Responsive Navigation Bar */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #f5f5f5;
+      margin: 4px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #2c2c2c;
+      z-index: 1000;
+    }
+
+    /* Section Styling */
+    .content {
+      display: none;
+      padding: 60px 20px;
+      background-color: #2b2b2b;
+      border-top: 5px solid gold;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.3);
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    /* Headers */
+    h1, h2 {
+      font-family: 'Palatino Linotype', serif;
+      font-size: 2.2em;
+      color: gold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Paragraphs */
+    p {
+      font-family: 'Verdana', sans-serif;
+      font-size: 1.1em;
+      line-height: 1.8;
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Home Banner */
+    #home {
+      background: linear-gradient(to bottom, #1e1e1e, #333);
+      padding: 0px 1px;
+      color: #f5f5f5;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+      border-bottom: 5px solid gold;
+    }
+
+    #home h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #home video {
+      border: 3px solid gold;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* Contact and Comment Box */
+    .contact {
+      background-color: #1b1b1b;
+      border: 1px solid gold;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+    }
+
+    .contact input, .contact button {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background-color: #333;
+      color: white;
+    }
+
+    .contact button {
+      background-color: gold;
+      color: #222;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background-color: #ffc107;
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .social-links a img {
+      width: 48px;
+      height: 48px;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .social-links a img:hover {
+      transform: scale(1.15);
+      filter: brightness(1.2);
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: gold;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.95em;
+      border-top: 2px solid gold;
+      position: relative;
+    }
+
+    /* Removed the Back to Top Button */
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav a {
+        margin: 8px 0;
+      }
+
+      .content {
+        padding: 30px 15px;
+      }
+
+      h1, h2 {
+        font-size: 1.5em;
+      }
+
+      .social-links a img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
 </head>
 
-<body onload="hideLoader()">
-
-<!-- Loader -->
-<div id="loader"></div>
+<body>
 
 <!-- Marquee Title -->
 <div class="marquee">
@@ -28,26 +253,32 @@
 
 <!-- Navigation -->
 <nav>
-  <a onclick="showSection('home')">Home</a>
-  <a onclick="showSection('contact')">Contact</a>
-  <a onclick="showSection('blog')">Blog</a>
-  <a onclick="showSection('comment')">Comment</a>
-  <a onclick="showSection('about')">About</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="nav-links">
+    <a onclick="showSection('home')">Home</a>
+    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="showSection('about')">About</a>
+    <a onclick="showSection('services')">Services</a> <!-- New Link -->
+  </div>
 </nav>
 
 <!-- Sections -->
 
-<div id="home" class="content active" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');">
-  <h1>Welcome to My Website</h1>
+<div id="home" class="content active">
+  <video autoplay muted loop>
+    <source src="https://media.istockphoto.com/id/1213708732/video/modern-welcome-line-icon-animation-on-white-background.mp4?s=mp4-640x640-is&k=20&c=ReJ8k1W4-GbGDTlQThCrlxJV5kts3nQHHHgU5MG-lLY=" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </div>
 
-<div id="contact" class="content" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1350&q=80');">
+<div id="contact" class="content">
   <div class="contact">
     <h2>Contact Me</h2>
     <div class="social-links">
-      <a href="https://discord.com/jahidhasan_dis" target="_blank">
-        <img src="https://img.icons8.com/fluency/48/000000/discord-logo.png" alt="Discord">
-      </a>
       <a href="https://instagram.com/jahidhasan2.0ff" target="_blank">
         <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram">
       </a>
@@ -61,13 +292,7 @@
   </div>
 </div>
 
-<div id="blog" class="content" style="background-image: url('https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=1350&q=80');">
-  <h2>Favorite Videos</h2>
-  <iframe width="350" height="215" src="https://www.youtube.com/embed/SK8jENUAylI" frameborder="0" allowfullscreen></iframe>
-  <iframe width="350" height="215" src="https://www.youtube.com/embed/kzVmU_Lv8tQ" frameborder="0" allowfullscreen></iframe>
-</div>
-
-<div id="comment" class="content" style="background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=1350&q=80');">
+<div id="comment" class="content">
   <div class="contact">
     <h2>Leave a Comment</h2>
     <form id="commentForm">
@@ -80,9 +305,15 @@
   </div>
 </div>
 
-<div id="about" class="content" style="background-image: url('https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=1350&q=80');">
+<div id="about" class="content">
   <h2>About Me</h2>
   <p>My name is MD JAHID HASAN. I am a web developer. Thank you for visiting!</p>
+</div>
+
+<!-- New Section for Services -->
+<div id="services" class="content">
+  <h2>Our Services</h2>
+  <p>We offer a wide range of web development and design services to meet your needs.</p>
 </div>
 
 <!-- Footer -->
@@ -90,11 +321,26 @@
   &copy; 2025 Jahid Hasan | Traditional Website | All Rights Reserved
 </footer>
 
-<!-- Back to Top Button -->
-<button onclick="topFunction()" id="topBtn">⬆️</button>
+<script>
+  // JavaScript from script.js
+  function showSection(id) {
+      document.querySelectorAll('.content').forEach(div => div.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.getElementById(id).style.opacity = 0;
+      setTimeout(() => document.getElementById(id).style.opacity = 1, 100);
+  }
 
-<!-- Linking JavaScript -->
-<script src="script.js"></script>
+  document.getElementById('commentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('thankYouMessage').style.display = 'block';
+      this.reset();
+  });
+
+  function toggleMenu() {
+    var navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  }
+</script>
 
 </body>
 </html>
