@@ -39,60 +39,14 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* Navigation Bar */
-    nav {
-      background: #2c2c2c;
-      display: flex;
-      justify-content: center;
-      padding: 15px 10px;
-      border-bottom: 1px solid gold;
-    }
-
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      margin: 0 12px;
-      padding: 10px 15px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      border-radius: 5px;
-    }
-
-    nav a:hover {
-      background: gold;
-      color: #222;
-    }
-
-    /* Responsive Navigation Bar */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #f5f5f5;
-      margin: 4px 0;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-direction: row;
-    }
-
-    .nav-links.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #2c2c2c;
-      z-index: 1000;
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background-color: #2b2b2b;
+      border-radius: 10px;
     }
 
     /* Section Styling */
@@ -146,7 +100,7 @@
     }
 
     #home video {
-      border: 3px solid gold;
+      border: 3px solid rgb(92, 71, 109);
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
       width: 100%;
@@ -216,8 +170,6 @@
       position: relative;
     }
 
-    /* Removed the Back to Top Button */
-
     /* Responsive Design */
     @media (max-width: 768px) {
       nav {
@@ -246,102 +198,1423 @@
 </head>
 
 <body>
-
-<!-- Marquee Title -->
-<div class="marquee">
-  <div class="marquee-text">🌟 Welcome to My Traditional Website 🌟</div>
-</div>
-
-<!-- Navigation -->
-<nav>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="nav-links">
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('contact')">Contact</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('services')">Services</a> <!-- New Link -->
-  </div>
-</nav>
-
-<!-- Sections -->
-
-<div id="home" class="content active">
-  <video autoplay muted loop>
-    <source src="https://media.istockphoto.com/id/1213708732/video/modern-welcome-line-icon-animation-on-white-background.mp4?s=mp4-640x640-is&k=20&c=ReJ8k1W4-GbGDTlQThCrlxJV5kts3nQHHHgU5MG-lLY=" type="video/mp4">
+<div id="home" style="padding: 40px 10px 30px 10px; text-align: center; background: linear-gradient(120deg, #232323 60%, #353535 100%); border-radius: 18px; box-shadow: 0 8px 32px rgba(255,215,0,0.13), 0 2px 10px rgba(0,0,0,0.18); margin-bottom: 32px; border: 2.5px solid #202020cb; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -30px; left: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgb(85, 81, 62) 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+  <h1 id="animated-title" style="font-size: 2.7em; font-weight: bold; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 2.5px; color: #ffe100; font-family: 'Palatino Linotype', serif; text-shadow: 2px 2px 8px #232323, 0 0 18px #5a584e; background: linear-gradient(90deg, #ffd000 60%, #414040 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;"></h1>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var text = "My Traditional Website";
+      var i = 0;
+      var speed = 60;
+      var el = document.getElementById('animated-title');
+      function typeWriter() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+      typeWriter();
+    });
+  </script>
+  <video autoplay muted loop style="width: 100%; max-width: 700px; height: 320px; border-radius: 14px; border: 3px solid #4e4d45; box-shadow: 0 8px 28px rgba(255,215,0,0.10), 0 2px 8px rgba(0,0,0,0.18); object-fit: cover; margin-top: 18px;">
+    <source src="https://cdn.pixabay.com/video/2024/06/06/215500_tiny.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <div style="position: absolute; bottom: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, #66624a 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
 </div>
 
-<div id="contact" class="content">
-  <div class="contact">
-    <h2>Contact Me</h2>
-    <div class="social-links">
-      <a href="https://instagram.com/jahidhasan2.0ff" target="_blank">
-        <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram">
+<!-- Marquee Title -->
+<div class="marquee" style="width: 100%; background: linear-gradient(90deg, #232323 0%, #3b3d4e98 100%); border-bottom: 2.5px solid rgba(87, 106, 124, 0.658); border-radius: 0 0 18px 18px; box-shadow: 0 2px 12px rgba(255,215,0,0.10); margin-bottom: 0; position: fixed; top: 0; left: 0; z-index: 1000;">
+  <div class="marquee-text" style="font-family: 'Georgia', serif; font-size: 1.25em; color: #85816a; letter-spacing: 2px; text-shadow: 1px 1px 8px #232323;">
+    <span style="margin-right:10px; font-size:1.1em;">🌟</span>
+    <span style="color:#ffd900; font-weight:bold;">Welcome! I am <span style="color:#ff3c3c;">Jahid</span></span>
+    <span style="color:#25eb13; font-weight:bold; margin-left:8px;">Web Developer</span>
+    <span style="color:#05b5e0; font-weight:bold; margin-left:8px;">& Designer</span>
+    <span style="margin-left:10px; font-size:1.1em;">🌟</span>
+  </div>
+</div>
+
+<div class="container">
+  <h2 id="animated-heading" style="text-align: center; color: rgb(255, 255, 255); font-family: 'Palatino Linotype', serif; font-size: 2.5em; margin-top: 20px;">
+    My Digital Services
+  </h2>
+  <!-- Slideshow Start -->
+  <div id="slideshow-container" style="max-width: 700px; margin: 32px auto 24px auto; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 18px rgba(255,215,0,0.13), 0 2px 10px rgba(0,0,0,0.18); position: relative;">
+    <img class="slide-img" src="https://cdn.pixabay.com/photo/2020/08/09/14/25/business-5475661_640.jpg" alt="Slide 1" style="width:100%; display:block; transition:opacity 0.8s; opacity:1;">
+    <img class="slide-img" src="https://media.istockphoto.com/id/2005758107/photo/business-finance-data-analytics-graph-financial-management-technology-advisor-using-kpi.jpg?s=612x612&w=0&k=20&c=LlBBmIqkE3m3CfqAjYZr_QV68cUj4n94GHnhSWur3Cc=" alt="Slide 2" style="width:100%; display:none; transition:opacity 0.8s; opacity:0;">
+    <img class="slide-img" src="https://media.istockphoto.com/id/2205462389/photo/ads-product-ads-market-online-advertising-concept-internet-advertising-digital-marketing.jpg?s=612x612&w=0&k=20&c=tCpAo76w9pBmyEFZxQMiTjpU3lyDWrjBaP9ym1IhWVk=" alt="Slide 3" style="width:100%; display:none; transition:opacity 0.8s; opacity:0;">
+    <img class="slide-img" src="https://media.istockphoto.com/id/2221324856/photo/seo-concept-with-digital-marketing-icons-and-businessman-using-tablet-on-dark-background-with.jpg?s=612x612&w=0&k=20&c=7xc3jCBMCI5VrkNjPXJ_EgpUqnVHdJu-jPNaTgp9CH0=" alt="Slide 4" style="width:100%; display:none; transition:opacity 0.8s; opacity:0;">
+    <!-- Dots -->
+    <div style="position:absolute; bottom:12px; left:50%; transform:translateX(-50%); display:flex; gap:8px;">
+      <span class="slide-dot" style="height:12px;width:12px;background:#807171;border-radius:50%;display:inline-block;cursor:pointer;opacity:0.7;"></span>
+      <span class="slide-dot" style="height:12px;width:12px;background:#807171;border-radius:50%;display:inline-block;cursor:pointer;opacity:0.7;"></span>
+      <span class="slide-dot" style="height:12px;width:12px;background:#807171;border-radius:50%;display:inline-block;cursor:pointer;opacity:0.7;"></span>
+      <span class="slide-dot" style="height:12px;width:12px;background:#807171;border-radius:50%;display:inline-block;cursor:pointer;opacity:0.7;"></span>
+    </div>
+  </div>
+  <script>
+    // Simple auto slideshow
+    document.addEventListener('DOMContentLoaded', function() {
+      var slides = document.querySelectorAll('.slide-img');
+      var dots = document.querySelectorAll('.slide-dot');
+      var current = 0;
+      function showSlide(idx) {
+        slides.forEach(function(img, i) {
+          img.style.display = i === idx ? 'block' : 'none';
+          img.style.opacity = i === idx ? '1' : '0';
+        });
+        dots.forEach(function(dot, i) {
+          dot.style.opacity = i === idx ? '1' : '0.7';
+        });
+      }
+      function nextSlide() {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }
+      // Dot click
+      dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+          current = i;
+          showSlide(current);
+        });
+      });
+      showSlide(current);
+      setInterval(nextSlide, 3500);
+    });
+  </script>
+  <!-- Slideshow End --></div>
+  </script>
+  <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 18px;">
+    <span style="font-size: 2em; color: rgb(255, 255, 255); margin-bottom: 8px; animation: pulseGlow 1.2s infinite alternate;">&#120187;</span>
+    <p id="services-animate-left" style="text-align: center; color: #ce3c3c; font-size: 1.18em; max-width: 800px; margin: 0 auto; background: linear-gradient(90deg, #232323 60%, #353535 100%); border-radius: 10px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 16px 24px; font-family: 'Palatino Linotype', serif; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <span style="color: #ffd900; font-weight: bold;">Explore</span> my range of <span style="color: #25eb13; font-weight: bold;">digital services</span> designed to <span style="color: #05b5e0; font-weight: bold;">elevate your online presence</span> and <span style="color: #ffd900; font-weight: bold;">business growth</span>.
+    </p>
+    <script>
+      function animateServicesLeft() {
+      var el = document.getElementById('services-animate-left');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateServicesLeft);
+      }
+      }
+      window.addEventListener('scroll', animateServicesLeft);
+      window.addEventListener('DOMContentLoaded', animateServicesLeft);
+    </script>
+    <div style="display: flex; gap: 18px; margin-top: 12px;">
+      <span style="background: gold; color: #232323; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.3em; box-shadow: 0 2px 8px rgba(255,215,0,0.10); animation: bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#9733;</span>
+      <span style="background: #25eb13; color: #fff; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.3em; box-shadow: 0 2px 8px rgba(37,235,19,0.10); animation: bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#128640;</span>
+      <span style="background: #05b5e0; color: #fff; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; font-size: 1.3em; box-shadow: 0 2px 8px rgba(5,181,224,0.10); animation: bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#128187;</span>
+    </div>
+    <style>
+      @keyframes pulseGlow {
+        from { filter: drop-shadow(0 0 6px #ffd900); }
+        to { filter: drop-shadow(0 0 18px #ffb300); }
+      }
+      @keyframes bounce {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(-10px);}
+      }
+    </style>
+  </div></p>
+
+<div class="container" style="background: linear-gradient(135deg, #232526 0%, #414345 100%); border-radius: 18px; box-shadow: 0 6px 24px rgba(255,215,0,0.10), 0 2px 8px rgba(0,0,0,0.18); padding: 36px 18px 36px 18px; margin-top: 32px;">
+  <div id="services-animated-desc" style="font-size:1.2em; color:#fffbe6; background:linear-gradient(90deg, #232323 60%, #353535 100%); padding:20px 28px; border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.13), 0 2px 10px rgba(0,0,0,0.18); margin:0 auto 32px auto; max-width:650px; font-family:'Palatino Linotype',serif; letter-spacing:1.2px; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1); position:relative; overflow:hidden;">
+    <div style="position:absolute; top:-24px; right:-24px; width:80px; height:80px; background:radial-gradient(circle, gold 0%, transparent 80%); opacity:0.12; z-index:0;"></div>
+    <div style="position:absolute; bottom:-24px; left:-24px; width:80px; height:80px; background:radial-gradient(circle, #25eb13 0%, transparent 80%); opacity:0.10; z-index:0;"></div>
+    <span style="font-size:1.5em; vertical-align:middle; color:rgb(255, 255, 255); margin-right:10px;">&#198187;</span>
+    <span style="font-weight:bold; color:#ffd900; font-size:1.15em;">Welcome!</span>
+    <span style="color:#25eb13; font-weight:bold; margin-left:8px;">Explore my digital services</span>
+    <span style="color:#05b5e0; font-weight:bold; margin-left:8px;">and discover how I can help your business grow.</span>
+    <div style="margin-top:14px; display:flex; gap:14px; justify-content:center;">
+      <span style="background:gold; color:#232323; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:1.2em; box-shadow:0 2px 8px rgba(255,215,0,0.10); animation:bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#128171;</span>
+      <span style="background:#25eb13; color:#fff; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:1.2em; box-shadow:0 2px 8px rgba(37,235,19,0.10); animation:bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#128649;</span>
+      <span style="background:#05b5e0; color:#fff; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; font-size:1.2em; box-shadow:0 2px 8px rgba(5,181,224,0.10); animation:bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1);">&#128100;</span>
+    </div>
+    <style>
+      @keyframes bounce {
+        0% { transform: translateY(0);}
+        100% { transform: translateY(-10px);}
+      }
+    </style>
+  </div>
+  <script>
+    function animateServicesDesc() {
+      var el = document.getElementById('services-animated-desc');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateServicesDesc);
+      }
+    }
+    window.addEventListener('scroll', animateServicesDesc);
+    window.addEventListener('DOMContentLoaded', animateServicesDesc);
+  </script>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 36px;">
+    <div style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);"
+      id="key-digital-services-animate-up">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid gold; box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+      <source src="https://cdn.pixabay.com/video/2017/08/20/11473-230853026_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Key Digital Services</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/008/506/590/small/3d-seo-search-engine-optimization-concept-3d-rendering-png.png" alt="SEO" style="margin-right:10px; width:32px; height:32px;">
+        <span style="color:#f5f5f5;">SEO: <span style="color:#c08a8a;">Boost your website's visibility.</span></span>
+      </li>
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/32/000000/web-design.png" alt="Web Design" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Web Design: <span style="color:#c08a8a;">Modern, responsive layouts.</span></span>
+      </li>
+      <li style="display:flex; align-items:center;">
+        <img src="https://img.icons8.com/color/32/000000/youtube-play.png" alt="Video Rank" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Video Rank: <span style="color:#c08a8a;">Enhance your video reach.</span></span>
+      </li>
+      </ul>
+    </div>
+    <script>
+      function animateKeyDigitalServicesUp() {
+      var el = document.getElementById('key-digital-services-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateKeyDigitalServicesUp);
+      }
+      }
+      window.addEventListener('scroll', animateKeyDigitalServicesUp);
+      window.addEventListener('DOMContentLoaded', animateKeyDigitalServicesUp);
+    </script>
+
+    <div id="what-i-offer-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid #c08a8a; box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+      <source src="https://cdn.pixabay.com/video/2025/03/05/262696_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">What I Offer</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/40/000000/source-code.png" alt="Web Development" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Web Development: <span style="color:#c08a8a;">Custom solutions for your needs.</span></span>
+      </li>
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/40/000000/edit-file.png" alt="Content Creation" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Content Creation: <span style="color:#c08a8a;">Engaging content for your audience.</span></span>
+      </li>
+      <li style="display:flex; align-items:center;">
+        <img src="https://w7.pngwing.com/pngs/395/302/png-transparent-idea-drawing-icon-bulb-text-innovation-bulbs-thumbnail.png" alt="Branding" style="margin-right:20px; width:28px; height:28px;">
+        <span style="color:#f5f5f5;">Branding: <span style="color:#c08a8a;">Build a memorable identity.</span></span>
+      </li>
+      </ul>
+    </div>
+    <script>
+      function animateWhatIOfferUp() {
+      var el = document.getElementById('what-i-offer-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateWhatIOfferUp);
+      }
+      }
+      window.addEventListener('scroll', animateWhatIOfferUp);
+      window.addEventListener('DOMContentLoaded', animateWhatIOfferUp);
+    </script>
+
+    <div id="more-services-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid #219175; box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+      <source src="https://cdn.pixabay.com/video/2019/03/29/22449-327996264_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">More Services</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/40/000000/combo-chart.png" alt="Analytics" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Analytics: <span style="color:#c08a8a;">Track your performance.</span></span>
+      </li>
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/40/000000/technical-support.png" alt="Support" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Support: <span style="color:#c08a8a;">Ongoing web project help.</span></span>
+      </li>
+      <li style="display:flex; align-items:center;">
+        <img src="https://img.icons8.com/color/40/000000/consultation.png" alt="Consultation" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Consultation: <span style="color:#c08a8a;">Expert advice for your goals.</span></span>
+      </li>
+      </ul>
+    </div>
+    <script>
+      function animateMoreServicesUp() {
+      var el = document.getElementById('more-services-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateMoreServicesUp);
+      }
+      }
+      window.addEventListener('scroll', animateMoreServicesUp);
+      window.addEventListener('DOMContentLoaded', animateMoreServicesUp);
+    </script>
+
+    <div id="specialties-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid #ebe8d7; box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+      <source src="https://cdn.pixabay.com/video/2025/03/17/265432_tiny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Specialties</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/32/000000/speed.png" alt="Performance" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Performance: <span style="color:#c08a8a;">Speed up your website.</span></span>
+      </li>
+      <li style="display:flex; align-items:center; margin-bottom:10px;">
+        <img src="https://img.icons8.com/color/32/000000/lock-2.png" alt="Security" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Security: <span style="color:#c08a8a;">Protect from threats.</span></span>
+      </li>
+      <li style="display:flex; align-items:center;">
+        <img src="https://img.icons8.com/color/32/000000/data-in-both-directions.png" alt="Migration" style="margin-right:10px;">
+        <span style="color:#f5f5f5;">Migration: <span style="color:#c08a8a;">Seamless platform moves.</span></span>
+      </li>
+      </ul>
+    </div>
+    <script>
+      function animateSpecialtiesUp() {
+      var el = document.getElementById('specialties-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateSpecialtiesUp);
+      }
+      }
+      window.addEventListener('scroll', animateSpecialtiesUp);
+      window.addEventListener('DOMContentLoaded', animateSpecialtiesUp);
+    </script>
+
+    <div id="graphic-design-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2016/11/04/6266-190550868_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Graphic Design</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/hd.png" alt="HD Quality" style="margin-right:10px; width:32px; height:32px;">
+          <span style="color:#f5f5f5;">Quality: <span style="color:#c08a8a;">Hd,Mp4 and 4k quality video and image design.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/loading.png" alt="Loading" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">loading: <span style="color:#c08a8a;">Modern, responsive layouts and loading first.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+            <img src="https://img.icons8.com/color/32/000000/image.png" alt="Image Design" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Size: <span style="color:#c08a8a;">
+          Small size and fast loading.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateGraphicDesignUp() {
+      var el = document.getElementById('graphic-design-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateGraphicDesignUp);
+      }
+      }
+      window.addEventListener('scroll', animateGraphicDesignUp);
+      window.addEventListener('DOMContentLoaded', animateGraphicDesignUp);
+    </script>
+    
+    <div id="biomatrick-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2023/08/01/174086-850404739_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Biomatrick seatup</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/fingerprint.png" alt="Fingerprint" style="margin-right:10px; width:32px; height:32px;">
+          <span style="color:#f5f5f5;">Fingerprint: <span style="color:#c08a8a;"> The system compares it to a stored fingerprint record to verify your identity.
+          </span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/face-id.png" alt="Face Scan" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Fach Scan: <span style="color:#c08a8a;">It analyzes patterns based on a person’s facial structure.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+            <img src="https://img.icons8.com/color/32/000000/infrared.png" alt="Body Sensor" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Body sensor: <span style="color:#c08a8a;">
+         Motion detection for physical access control.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateBiomatrickUp() {
+      var el = document.getElementById('biomatrick-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateBiomatrickUp);
+      }
+      }
+      window.addEventListener('scroll', animateBiomatrickUp);
+      window.addEventListener('DOMContentLoaded', animateBiomatrickUp);
+    </script>
+    <div id="specialties-webdev-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2022/07/12/123872-729413470_large.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Web Development</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://img.icons8.com/color/32/000000/html-5.png" alt="HTML5" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">HTML5 & CSS3: <span style="color:#c08a8a;">Semantic and modern markup.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://img.icons8.com/color/32/000000/javascript.png" alt="JavaScript" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">JavaScript & Frameworks: <span style="color:#c08a8a;">Dynamic and interactive features.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://w7.pngwing.com/pngs/444/385/png-transparent-web-development-responsive-web-design-search-engine-optimization-software-miscellaneous-web-design-service-thumbnail.png" alt="Responsive" style="margin-right:18px; width:28px; height:25px;">
+          <span style="color:#f5f5f5;">Responsive Design: <span style="color:#c08a8a;">Mobile-first approach for all devices.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateSpecialtiesWebdevUp() {
+      var el = document.getElementById('specialties-webdev-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateSpecialtiesWebdevUp);
+      }
+      }
+      window.addEventListener('scroll', animateSpecialtiesWebdevUp);
+      window.addEventListener('DOMContentLoaded', animateSpecialtiesWebdevUp);
+    </script>
+    <div id="specialties-graphic-tools-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2022/08/17/128210-747086064_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Graphic Tools</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/gimp.png" alt="GIMP" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Adobe Photoshop: <span style="color:#c08a8a;">High-quality image editing.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/paint-palette.png" alt="Illustrator Alternative" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Adobe Illustrator: <span style="color:#c08a8a;">Vector graphics and illustrations.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://img.icons8.com/color/32/000000/design.png" alt="Design" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">UI/UX Design: <span style="color:#c08a8a;">User-centered design principles.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateSpecialtiesGraphicToolsUp() {
+      var el = document.getElementById('specialties-graphic-tools-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateSpecialtiesGraphicToolsUp);
+      }
+      }
+      window.addEventListener('scroll', animateSpecialtiesGraphicToolsUp);
+      window.addEventListener('DOMContentLoaded', animateSpecialtiesGraphicToolsUp);
+    </script>
+    <div id="specialties-digital-marketing-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2020/04/08/35344-405897623_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Digital Marketing</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://w7.pngwing.com/pngs/44/263/png-transparent-social-media-marketing-social-media-marketing-business-social-media-marketing-computer-network-search-engine-optimization-company-thumbnail.png" alt="Marketing" style="margin-right:15px; width: 25px; height: 25px;">
+          <span style="color:#f5f5f5;">Social Media Marketing: <span style="color:#c08a8a;">Engaging campaigns across platforms.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://img.icons8.com/color/32/000000/google-ads.png" alt="Google Ads" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Google Ads Management: <span style="color:#c08a8a;">Targeted advertising strategies.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://img.icons8.com/color/32/000000/analytics.png" alt="Analytics" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Analytics & Reporting: <span style="color:#c08a8a;">Data-driven insights for better decisions.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateSpecialtiesDigitalMarketingUp() {
+        var el = document.getElementById('specialties-digital-marketing-animate-up');
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < windowHeight - 40) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          window.removeEventListener('scroll', animateSpecialtiesDigitalMarketingUp);
+        }
+      }
+      window.addEventListener('scroll', animateSpecialtiesDigitalMarketingUp);
+      window.addEventListener('DOMContentLoaded', animateSpecialtiesDigitalMarketingUp);
+    </script>
+    <div id="specialties-ecommerce-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2021/11/14/97820-649761006_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">E-commerce Solutions</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://img.icons8.com/color/32/000000/shopping-cart.png" alt="E-commerce" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">E-commerce Development: <span style="color:#c08a8a;">Building online stores with WooCommerce and Shopify.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://w7.pngwing.com/pngs/160/178/png-transparent-salary-payroll-payment-management-tax-pay-human-resource-management-service-people-thumbnail.png" alt="Payment Integration" style="margin-right:20px; width: 28px; height: 25px;">
+          <span style="color:#f5f5f5;">Payment Gateway Integration: <span style="color:#c08a8a;">Secure transactions for your customers.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://img.icons8.com/color/32/000000/customer-support.png" alt="Customer Support" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Customer Support: <span style="color:#c08a8a;">24/7 assistance for your online store.</span></span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      function animateSpecialtiesEcommerceUp() {
+        var el = document.getElementById('specialties-ecommerce-animate-up');
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < windowHeight - 40) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          window.removeEventListener('scroll', animateSpecialtiesEcommerceUp);
+        }
+      }
+      window.addEventListener('scroll', animateSpecialtiesEcommerceUp);
+      window.addEventListener('DOMContentLoaded', animateSpecialtiesEcommerceUp);
+    </script>
+    <div id="consulting-training-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2022/06/20/121034-724685583_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Consulting & Training</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+          <img src="https://img.icons8.com/color/32/000000/training.png" alt="Training" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Training Programs: <span style="color:#c08a8a;">Empowering your team with skills.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://w7.pngwing.com/pngs/640/918/png-transparent-logo-car-workshop-yamaha-hand-sports-equipment-fictional-character-thumbnail.png" alt="Workshops" style="margin-right:20px; width:28px; height:25px;">
+          <span style="color:#f5f5f5;">Workshops: <span style="color:#c08a8a;">Hands-on sessions for practical learning.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://w7.pngwing.com/pngs/387/689/png-transparent-computer-icons-strategic-planning-strategy-planning-thumbnail.png" alt="Strategy" style="margin-right:20px; width:28px; height:25px;">
+          <span style="color:#f5f5f5;">Strategy Development: <span style="color:#c08a8a;">Tailored plans for your business growth.</span></span>
+        </li>
+      </ul>
+      </div>
+    <script>
+      function animateConsultingTrainingUp() {
+      var el = document.getElementById('consulting-training-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateConsultingTrainingUp);
+      }
+      }
+      window.addEventListener('scroll', animateConsultingTrainingUp);
+      window.addEventListener('DOMContentLoaded', animateConsultingTrainingUp);
+    </script>
+    <div id="custom-solutions-animate-up" style="background:rgba(30,30,30,0.95); border-radius:12px; box-shadow:0 2px 12px rgba(255,215,0,0.08); padding:20px; display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <video autoplay muted loop style="width:100%; max-width:420px; height:220px; border-radius:8px; border:2px solid rgb(63, 156, 60); box-shadow:0 4px 16px rgba(0,0,0,0.4); object-fit:cover;">
+        <source src="https://cdn.pixabay.com/video/2025/06/26/287982_tiny.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3 style="color:gold; font-family:'Palatino Linotype',serif; font-size:1.1em; margin:18px 0 10px 0;">Custom Solutions</h3>
+      <ul style="list-style:none; padding:0; margin:0; width:100%;">
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/settings--v2.png" alt="Custom Solution" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Custom Software Development: <span style="color:#c08a8a;">Tailored applications for your business.</span></span>
+        </li>
+        <li style="display:flex; align-items:center; margin-bottom:10px;">
+            <img src="https://img.icons8.com/color/32/000000/api-settings.png" alt="API Integration" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">System Integration: <span style="color:#c08a8a;">Connecting your tools for seamless workflows.</span></span>
+        </li>
+        <li style="display:flex; align-items:center;">
+          <img src="https://img.icons8.com/color/32/000000/support.png" alt="Support" style="margin-right:10px;">
+          <span style="color:#f5f5f5;">Ongoing Support: <span style="color:#c08a8a;">Reliable maintenance and updates.</span></span>
+        </li>
+      </ul>
+      </div>
+    <script>
+      function animateCustomSolutionsUp() {
+      var el = document.getElementById('custom-solutions-animate-up');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', animateCustomSolutionsUp);
+      }
+      }
+      window.addEventListener('scroll', animateCustomSolutionsUp);
+      window.addEventListener('DOMContentLoaded', animateCustomSolutionsUp);
+    </script>
+    </div>
+  </div>
+<section style="max-width: 850px; margin: 48px auto 0 auto; background: linear-gradient(120deg, #222 60%, #2e2e2e 100%); border-radius: 22px; box-shadow: 0 8px 32px rgba(255,215,0,0.13), 0 2px 10px rgba(0,0,0,0.18); padding: 44px 36px 36px 36px; border: 2.5px solid #4a4d64; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; background: radial-gradient(circle, gold 0%, transparent 80%); opacity: 0.09; z-index: 0;"></div>
+  <h2 style="color: #ffd900; font-family: 'Palatino Linotype', serif; font-size: 2.3em; text-align: left; margin-bottom: 18px; letter-spacing: 2px; text-shadow: 2px 2px 8px #222; z-index: 1; position: relative;">
+    <span style="font-size:1.2em; vertical-align:middle;">&#128100;</span> About Me
+  </h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; z-index: 1; position: relative;">
+    <div id="about-animate-profile" style="flex: 1 1 180px; min-width: 180px; max-width: 220px; display: flex; justify-content: center; opacity: 0; transform: translateX(80px); transition: opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <img src="https://img.icons8.com/fluency/120/administrator-male.png" alt="Profile" style="border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 4px 16px rgba(255,215,0,0.10); width: 120px; height: 120px; background: #232323;">
+    </div>
+    <script>
+      function animateAboutProfile() {
+      var el = document.getElementById('about-animate-profile');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateAboutProfile);
+      }
+      }
+      window.addEventListener('scroll', animateAboutProfile);
+      window.addEventListener('DOMContentLoaded', animateAboutProfile);
+    </script>
+    <div style="flex: 3 1 320px; min-width: 260px;">
+      <p id="about-typing" style="color: #fffbe6; font-size: 1.15em; line-height: 1.8; text-align: left; font-family: 'Georgia', serif; margin-bottom: 16px; min-height: 60px;">
+        <span style="font-size:1.2em; color:gold;">&#9733;</span>
+        <span id="about-typing-text"></span>
+        <span id="about-typing-cursor" style="color:gold; font-weight:bold;">|</span>
+      </p>
+      <ul id="about-animate-right" style="color:#f5f5f5; font-size:1.08em; line-height:1.7; padding-left: 1.2em; margin: 0 0 18px 0; list-style: disc inside; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1); background: linear-gradient(90deg, #232323 60%, #353535 100%); border-radius: 10px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 18px 22px 18px 32px; border-left: 4px solid rgb(99, 122, 148);">
+        <li>
+          <span style="color:gold; font-size:1.2em; margin-right:6px;">&#9733;</span>
+          Specialized in <b style="color:rgb(93, 139, 62);">responsive web design</b> and <b style="color:rgb(58, 82, 214);">modern UI/UX</b>
+        </li>
+        <li>
+          <span style="color:#25eb13; font-size:1.2em; margin-right:6px;">&#128187;</span>
+          Skilled in <b style="color:rgb(115, 57, 170);">HTML, CSS, JavaScript</b> and popular frameworks
+        </li>
+        <li>
+          <span style="color:#05b5e0; font-size:1.2em; margin-right:6px;">&#9889;</span>
+          Passionate about <b style="color:rgb(59, 110, 117);">performance</b> and <b style="color:rgb(146, 140, 226);">accessibility</b>
+        </li>
+        <li>
+          <span style="color:#ffd900; font-size:1.2em; margin-right:6px;">&#128640;</span>
+          Active in <b style="color:rgb(157, 79, 160);">open-source</b> and always learning new trends
+        </li>
+        <li>
+          <span style="color:#ff3c3c; font-size:1.2em; margin-right:6px;">&#127912;</span>
+          Strong eye for <b style="color:rgb(184, 133, 67);">visual design</b> and <b style="color:rgb(173, 70, 70);">branding</b>
+        </li>
+        <li>
+          <span style="color:#00fd00; font-size:1.2em; margin-right:6px;">&#128161;</span>
+          Focused on <b style="color:rgb(199, 90, 184);">creative solutions</b> and <b style="color:rgb(153, 93, 209);">client goals</b>
+        </li>
+      </ul>
+      <script>
+        function animateAboutRight() {
+          var el = document.getElementById('about-animate-right');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateAboutRight);
+          }
+        }
+        window.addEventListener('scroll', animateAboutRight);
+        window.addEventListener('DOMContentLoaded', animateAboutRight);
+      </script>
+      <p id="about-animate-left" style="color: #fffbe6; font-size: 1.09em; margin-bottom: 0; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+        When I’m not coding, I enjoy exploring design inspiration, sharing knowledge, and reading about the latest in tech.
+        <br>
+        <span style="color:gold;">Let’s connect</span> if you have a project in mind or just want to chat about web development!
+      </p>
+      <script>
+        function animateAboutLeft() {
+          var el = document.getElementById('about-animate-left');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateAboutLeft);
+          }
+        }
+        window.addEventListener('scroll', animateAboutLeft);
+        window.addEventListener('DOMContentLoaded', animateAboutLeft);
+      </script>
+      <script>
+        // Typing animation for About Me
+        document.addEventListener('DOMContentLoaded', function() {
+          var text = "Welcome to my traditional website! I’m Jahid, a creative web developer and designer dedicated to building elegant, high-performance digital experiences.";
+          var i = 0;
+          var speed = 28;
+          var typingEl = document.getElementById('about-typing-text');
+          var cursor = document.getElementById('about-typing-cursor');
+          function typeWriter() {
+            if (i < text.length) {
+              typingEl.textContent += text.charAt(i);
+              i++;
+              setTimeout(typeWriter, speed);
+            } else {
+              cursor.style.display = 'none';
+            }
+          }
+          typeWriter();
+          // Optional: blinking cursor
+          setInterval(function() {
+            if (cursor.style.display !== 'none') {
+              cursor.style.visibility = (cursor.style.visibility === 'hidden') ? 'visible' : 'hidden';
+            }
+          }, 420);
+        });
+      </script>
+    </div>
+  </div>
+  <div style="position: absolute; bottom: -40px; left: -40px; width: 120px; height: 120px; background: radial-gradient(circle, #ffd900 0%, transparent 80%); opacity: 0.09; z-index: 0;"></div>
+</section>
+
+  <div style="text-align: center; margin-top: 32px;">
+    <button 
+      id="modernToggleBtn"
+      style="background: linear-gradient(90deg, #ffd900 0%, #ffb300 100%); color: #232323; padding: 14px 32px; border: none; border-radius: 30px; font-size: 1.18em; font-family: 'Palatino Linotype', serif; font-weight: bold; cursor: pointer; box-shadow: 0 6px 24px rgba(255,215,0,0.18), 0 2px 8px rgba(0,0,0,0.15); transition: background 0.4s, transform 0.2s, box-shadow 0.4s; letter-spacing: 1px; position: relative; overflow: hidden;"
+      onmouseover="this.style.background='linear-gradient(90deg, #ffb300 0%, #ffd900 100%)'; this.style.transform='scale(1.06)'; this.style.boxShadow='0 10px 32px rgba(255,215,0,0.22), 0 2px 8px rgba(0,0,0,0.18)';"
+      onmouseout="this.style.background='linear-gradient(90deg, #ffd900 0%, #ffb300 100%)'; this.style.transform='scale(1)'; this.style.boxShadow='0 6px 24px rgba(255,215,0,0.18), 0 2px 8px rgba(0,0,0,0.15)';"
+    >
+      <span style="display:inline-block; animation: pulseGlow 1.2s infinite alternate;">✨</span>
+      Toggle Content
+      <span style="display:inline-block; animation: pulseGlow 1.2s infinite alternate;">✨</span>
+    </button>
+    <style>
+      @keyframes pulseGlow {
+        from { filter: drop-shadow(0 0 6px #ffd900); }
+        to { filter: drop-shadow(0 0 18px #ffb300); }
+      }
+    </style>
+    <script>
+      // Modern toggle with fade effect
+      document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('modernToggleBtn');
+        var content = document.querySelector('.content');
+        btn.addEventListener('click', function() {
+          if (content.classList.contains('active')) {
+            content.style.opacity = '0';
+            setTimeout(function() {
+              content.classList.remove('active');
+              content.style.opacity = '';
+            }, 400);
+          } else {
+            content.classList.add('active');
+            content.style.opacity = '0';
+            setTimeout(function() {
+              content.style.opacity = '1';
+            }, 10);
+          }
+        });
+      });
+    </script>
+  </div>
+
+  <div class="content active" style="opacity: 1;">
+  <section style="margin: 40px auto 0 auto; background: linear-gradient(120deg, #232323 60%, #353535 100%); padding: 32px 24px 28px 24px; border-radius: 16px; box-shadow: 0 8px 32px rgba(255,215,0,0.13), 0 1.5px 8px rgba(0,0,0,0.18); max-width: 700px; border: 2px solid rgb(72, 75, 104); position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgb(0, 0, 0) 0%, transparent 80%); opacity: 0.13; z-index: 0;"></div>
+    <h2 style="color: #fffbe6; font-family: 'Palatino Linotype', serif; font-size: 2em; text-align: left; margin-bottom: 22px; letter-spacing: 2px; text-shadow: 2px 2px 8px #222;">
+      <span style="color: #00fd00; font-size: 1.1em; animation: glow 1.2s infinite alternate;">&#9733; </span>
+      <span style="animation: fadeInText 1.5s ease-in;">Featured Content</span>
+      <style>
+      @keyframes glow {
+        from { text-shadow: 0 0 6px #ff0000, 0 0 12px #003cff; }
+        to { text-shadow: 0 0 18px #2f00ff, 0 0 32px #9dff00; }
+      }
+      @keyframes fadeInText {
+        from { opacity: 0; transform: translateY(16px);}
+        to { opacity: 1; transform: translateY(0);}
+      }
+      </style>
+    </h2>
+    <div style="display: flex; flex-direction: column; gap: 18px; z-index: 1; position: relative;">
+      <div class="featured-animate-left2" style="display: flex; align-items: flex-start; gap: 14px; background: rgba(34,34,34,0.85); padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,215,0,0.07); opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+        <img src="https://img.icons8.com/fluency/40/code.png" alt="Web Development" style="filter: drop-shadow(0 2px 6px #222);">
+        <span style="color: #ebe8d7; font-size: 1.08em;">Professional <b style="color:gold;">web development</b> services</span>
+      </div>
+      <script>
+        function animateFeaturedLeft2() {
+          var el = document.querySelector('.featured-animate-left2');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+            window.removeEventListener('scroll', animateFeaturedLeft2);
+          }
+        }
+        window.addEventListener('scroll', animateFeaturedLeft2);
+        window.addEventListener('DOMContentLoaded', animateFeaturedLeft2);
+      </script>
+      
+      <div class="featured-animate-right2" style="display: flex; align-items: flex-start; gap: 14px; background: rgba(34,34,34,0.85); padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,215,0,0.07); opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+        <img src="https://img.icons8.com/fluency/40/monitor.png" alt="Modern Design" style="filter: drop-shadow(0 2px 6px #222);">
+        <span style="color: #ebe8d7; font-size: 1.08em;">Responsive and <b style="color:gold;">modern design</b></span>
+      </div>
+      <script>
+        function animateFeaturedRight2() {
+          var el = document.querySelector('.featured-animate-right2');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateFeaturedRight2);
+          }
+        }
+        window.addEventListener('scroll', animateFeaturedRight2);
+        window.addEventListener('DOMContentLoaded', animateFeaturedRight2);
+      </script>
+
+      <div class="featured-animate-left" style="display: flex; align-items: flex-start; gap: 14px; background: rgba(34,34,34,0.85); padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,215,0,0.07); opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+        <img src="https://img.icons8.com/fluency/40/portfolio.png" alt="Portfolio" style="filter: drop-shadow(0 2px 6px #222);">
+        <span style="color: #ebe8d7; font-size: 1.08em;">Portfolio of <b style="color:gold;">completed projects</b></span>
+      </div>
+      <script>
+        function animateFeaturedLeft() {
+          var el = document.querySelector('.featured-animate-left');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateFeaturedLeft);
+          }
+        }
+        window.addEventListener('scroll', animateFeaturedLeft);
+        window.addEventListener('DOMContentLoaded', animateFeaturedLeft);
+      </script>
+
+      <div class="featured-animate-right" style="display: flex; align-items: flex-start; gap: 14px; background: rgba(34,34,34,0.85); padding: 12px 16px; border-radius: 8px; box-shadow: 0 2px 10px rgba(255,215,0,0.07); opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+        <img src="https://img.icons8.com/fluency/40/share.png" alt="Contact & Social" style="filter: drop-shadow(0 2px 6px #222);">
+        <span style="color: #ebe8d7; font-size: 1.08em;">Contact and <b style="color:gold;">social media links</b></span>
+      </div>
+      <script>
+        function animateFeaturedRight() {
+          var el = document.querySelector('.featured-animate-right');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateFeaturedRight);
+          }
+        }
+        window.addEventListener('scroll', animateFeaturedRight);
+        window.addEventListener('DOMContentLoaded', animateFeaturedRight);
+      </script>
+    </div>
+
+    <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgb(255, 217, 0) 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+  </section>
+</div>
+</div>
+
+  <div class="container" style="max-width: 900px; margin: 48px auto; padding: 32px 28px; background: linear-gradient(135deg, #232526 0%, #414345 100%); border-radius: 22px; box-shadow: 0 10px 36px rgba(255,215,0,0.15), 0 2px 10px rgba(0,0,0,0.18); border: 2.5px solid #46374d;">
+    <h2 style="color: #ffd900; font-family: 'Palatino Linotype', serif; font-size: 2.2em; text-align: left; margin-bottom: 24px; letter-spacing: 2.5px; text-shadow: 2px 2px 10px #222;">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
+        <span style="font-size:1.2em; vertical-align:middle; animation: bounce 1.2s infinite alternate cubic-bezier(.5,1.5,.5,1); display:inline-block;">&#128187;</span>
+        <style>
+          @keyframes bounce {
+            0% { transform: translateY(0);}
+            100% { transform: translateY(-12px);}
+          }
+        </style>
+        <span style="display:block; font-size:1.1em; margin-top:4px;">My Portfolio</span>
+      </div>
+    </h2>
+    <div id="portfolio-animated-desc" style="background:rgba(235, 228, 197, 0.07); border-left: 5px solid rgb(185, 181, 157); border-radius: 10px; padding: 18px 24px; margin-bottom: 32px; box-shadow: 0 2px 10px rgba(104, 94, 41, 0.644); opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <p style="color: #ffffff; font-size: 1.18em; line-height: 1.8; text-align: left; font-family:'Palatino Linotype',serif; margin:0;">
+      <span style="font-size:1.3em; vertical-align:middle;">&#128187;</span>
+      Browse a selection of my recent projects and creative work. Each project highlights my skills in <b style="color:#c5f005;">web development</b>, <b style="color:#25eb13;">design</b>, and <b style="color:#05b5e0;">digital strategy</b>.
+      <br>
+      <span style="color:#ffffff; font-weight:bold;">Quality and creativity in every project!</span>
+      </p>
+    </div>
+    <script>
+      function animatePortfolioDesc() {
+      var el = document.getElementById('portfolio-animated-desc');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animatePortfolioDesc);
+      }
+      }
+      window.addEventListener('scroll', animatePortfolioDesc);
+      window.addEventListener('DOMContentLoaded', animatePortfolioDesc);
+    </script>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; justify-items: center;">
+      <div class="portfolio-item" style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px; opacity:0; transform:translateY(40px); transition:opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);">
+      <a href="https://jahidads.github.io/business-portfolio/" target="_blank">
+        <img src="https://cdn.pixabay.com/photo/2018/02/08/10/22/desk-3139127_640.jpg" alt="Project 1" style="width:100%; border-radius:10px; box-shadow:0 2px 10px rgba(255,215,0,0.13); margin-bottom:12px; transition:transform 0.4s, box-shadow 0.4s;">
       </a>
-      <a href="https://twitter.com/jahidhasan_tw" target="_blank">
-        <img src="https://img.icons8.com/color/48/000000/twitter--v1.png" alt="Twitter">
+      <h3 style="color:rgb(255, 217, 0); font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif;">Business Landing Page</h3>
+      <p style="color:#fffbe6; font-size:0.98em; margin-bottom:0;">Modern, responsive landing page for a startup.</p>
+      </div>
+      <div class="portfolio-item" style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px; opacity:0; transform:translateY(40px); transition:opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);">
+      <a href="https://jahidads.github.io/CyberShield/" target="_blank">
+      <img src="https://cdn.pixabay.com/photo/2015/05/28/14/53/ux-788002_640.jpg" alt="Project 2" style="width:100%; border-radius:10px; box-shadow:0 2px 10px rgba(255,215,0,0.13); margin-bottom:12px; transition:transform 0.4s, box-shadow 0.4s;">
       </a>
-      <a href="https://www.facebook.com/profile.php?id=61575663205505" target="_blank">
-        <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook">
-      </a>
+      <h3 style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif;">E-commerce UI</h3>
+      <p style="color:#fffbe6; font-size:0.98em; margin-bottom:0;">Custom e-commerce interface with smooth UX.</p>
+      </div>
+      <div class="portfolio-item" style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px; opacity:0; transform:translateY(40px); transition:opacity 0.7s cubic-bezier(.4,2,.3,1), transform 0.7s cubic-bezier(.4,2,.3,1);">
+        <a href="https://jahidads.github.io/Developer-portfolio/" target="_blank">
+        <img src="https://cdn.pixabay.com/photo/2023/09/27/10/48/portfolio-8279357_640.jpg" alt="Project 3" style="width:100%; border-radius:10px; box-shadow:0 2px 10px rgba(255,215,0,0.13); margin-bottom:12px; transition:transform 0.4s, box-shadow 0.4s;">
+        </a>
+        <h3 style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif;">Portfolio Website</h3>
+        <p style="color:#fffbe6; font-size:0.98em; margin-bottom:0;">Personal portfolio with interactive features.</p>
+      </div>
+      <script>
+        // Scroll-triggered reveal effect for portfolio items
+        function revealPortfolioItems() {
+          var items = document.querySelectorAll('.portfolio-item');
+          var windowHeight = window.innerHeight;
+          items.forEach(function(item) {
+        var rect = item.getBoundingClientRect();
+        if (rect.top < windowHeight - 60) {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }
+          });
+        }
+        window.addEventListener('scroll', revealPortfolioItems);
+        window.addEventListener('DOMContentLoaded', revealPortfolioItems);
+
+        // Hover effect for image
+        document.addEventListener('DOMContentLoaded', function() {
+          var imgs = document.querySelectorAll('.portfolio-item img');
+          imgs.forEach(function(img) {
+        img.addEventListener('mouseenter', function() {
+          img.style.transform = 'scale(1.05)';
+          img.style.boxShadow = '0 6px 24px rgba(255,215,0,0.25)';
+        });
+        img.addEventListener('mouseleave', function() {
+          img.style.transform = '';
+          img.style.boxShadow = '0 2px 10px rgba(255,215,0,0.13)';
+        });
+          });
+        });
+      </script>
     </div>
   </div>
 </div>
-
-<div id="comment" class="content">
-  <div class="contact">
-    <h2>Leave a Comment</h2>
-    <form id="commentForm">
-      <input type="text" name="CompanyName" placeholder="Company Name" required><br>
-      <input type="url" name="CompanyWebsite" placeholder="Company Website" required><br>
-      <input type="email" name="Email" placeholder="Email" required><br>
-      <button type="submit">Submit</button>
-    </form>
-    <p id="thankYouMessage" style="display:none;color:lightgreen;">Thank you for your comment!</p>
+<!-- Add Contact Section -->
+<section style="margin: 48px auto 0 auto; max-width: 600px; background: #232323; padding: 40px 32px 36px 32px; border-radius: 20px; box-shadow: 0 8px 32px rgba(255,215,0,0.10), 0 1.5px 8px rgba(0,0,0,0.18); border: 2.5px solid #4d4b42; position: relative;">
+  <h2 style="color: #ffd500; font-family: 'Palatino Linotype', serif; font-size: 2.1em; text-align: center; margin-bottom: 16px; letter-spacing: 2px; text-shadow: 2px 2px 8px #222;">
+    Get In Touch
+  </h2>
+  <p style="color: #ffffff; font-size: 1.1em; text-align: center; margin-bottom: 24px;">
+    I'd love to hear from you! Please fill out the form below to send a message.
+  </p>
+  <form id="contactForm" style="display: grid; gap: 16px;">
+    <label style="color: #ffffff; font-size: 1em; font-family: 'Georgia', serif;">Name
+      <input type="text" name="name" required style="width:100%; padding: 10px; border-radius: 6px; border: 1.5px solid #6e6a4e; background: #181818; color: #fffbe6; font-size: 1em; margin-top: 4px;">
+    </label>
+    <label style="color: #ffffff; font-size: 1em; font-family: 'Georgia', serif;">Email
+      <input type="email" name="email" required style="width:100%; padding: 10px; border-radius: 6px; border: 1.5px solid #6e6a4e; background: #181818; color: #fffbe6; font-size: 1em; margin-top: 4px;">
+    </label>
+    <label style="color: #ffffff; font-size: 1em; font-family: 'Georgia', serif;">Message
+      <textarea name="message" rows="5" required style="width:100%; padding: 10px; border-radius: 6px; border: 1.5px solid #6e6a4e; background: #181818; color: #fffbe6; font-size: 1em; margin-top: 4px; resize: vertical;"></textarea>
+    </label>
+    <button type="submit" style="background: #ffd700; color: #232323; font-weight: bold; padding: 12px 0; border: none; border-radius: 8px; font-size: 1.1em; cursor: pointer; box-shadow: 0 4px 12px rgba(255,215,0,0.13); transition: background 0.3s;">
+      Send
+    </button>
+  </form>
+  <div id="contactThanks" style="display:none; color:#00a2ff; text-align:center; margin-top:24px; font-size:1.18em; font-family:'Palatino Linotype',serif; background:rgba(34,34,34,0.95); padding:18px 24px; border-radius:10px; box-shadow:0 2px 12px rgba(255,215,0,0.10); border:1.5px solid #ffffff;">
+    <span style="font-size:1.5em;">&#128522;</span><br>
+    Thank you! Your message has been sent.
   </div>
-</div>
-
-<div id="about" class="content">
-  <h2>About Me</h2>
-  <p>My name is MD JAHID HASAN. I am a web developer. Thank you for visiting!</p>
-</div>
-
-<!-- New Section for Services -->
-<div id="services" class="content">
-  <h2>Our Services</h2>
-  <p>We offer a wide range of web development and design services to meet your needs.</p>
-</div>
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 Edit by Jahid Hasan | All Rights Reserved
-</footer>
-
-<script>
-  // JavaScript from script.js
-  function showSection(id) {
-      document.querySelectorAll('.content').forEach(div => div.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.getElementById(id).style.opacity = 0;
-      setTimeout(() => document.getElementById(id).style.opacity = 1, 100);
-  }
-
-  document.getElementById('commentForm').addEventListener('submit', function(e) {
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      document.getElementById('thankYouMessage').style.display = 'block';
-      this.reset();
-  });
-
-  function toggleMenu() {
-    var navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
+      document.getElementById('contactThanks').style.display = 'block';
+      this.style.display = 'none';
+    });
+  </script>
+  <div style="margin-top: 32px; text-align: center;">
+    <span style="font-family:'Georgia',serif; font-size:1.15em; color:#ffd700; font-weight:bold; letter-spacing:1px;">
+      Connect with me
+    </span>
+    <div id="social-animated" style="display: flex; justify-content: center; gap: 22px; margin-top: 14px; opacity: 0; transform: translateX(80px); transition: opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <a href="https://www.facebook.com/jahidads1" target="_blank" title="Facebook">
+      <img src="https://img.icons8.com/color/44/000000/facebook-new.png" alt="Facebook" style="border-radius: 50%; box-shadow: 0 2px 8px rgba(255,215,0,0.10);">
+      </a>
+      <a href="https://x.com/jahidhasan_tw" target="_blank" title="Twitter">
+      <img src="https://img.icons8.com/color/44/000000/twitter.png" alt="Twitter" style="border-radius: 50%; box-shadow: 0 2px 8px rgba(255,215,0,0.10);">
+      </a>
+      <a href="https://www.instagram.com/jahidhasan2.0ff/" target="_blank" title="Instagram">
+      <img src="https://img.icons8.com/color/44/000000/instagram-new.png" alt="Instagram" style="border-radius: 50%; box-shadow: 0 2px 8px rgba(255,215,0,0.10);">
+      </a>
+      <a href="https://bd.linkedin.com/in/jahidads" target="_blank" title="LinkedIn">
+      <img src="https://img.icons8.com/color/44/000000/linkedin-circled.png" alt="LinkedIn" style="border-radius: 50%; box-shadow: 0 2px 8px rgba(255,215,0,0.10);">
+      </a>
+      <a href="https://www.youtube.com/@jahidads1" target="_blank" title="YouTube">
+      <img src="https://img.icons8.com/color/44/000000/youtube-play.png" alt="YouTube" style="border-radius: 50%; box-shadow: 0 2px 8px rgba(255,215,0,0.10);">
+      </a>
+    </div>
+    <script>
+      function animateSocialIcons() {
+      var el = document.getElementById('social-animated');
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSocialIcons);
+      }
+      }
+      window.addEventListener('scroll', animateSocialIcons);
+      window.addEventListener('DOMContentLoaded', animateSocialIcons);
+    </script>
+    <div style="color:#fffbe6; font-size:0.98em; margin-top:10px;">
+      Let's connect for updates, tips, and collaboration!
+    </div>
+  </div>
+</section>
+<section id="specialties-section" style="margin: 48px auto; max-width: 900px; padding: 32px; background: linear-gradient(120deg, #232323 60%, #353535 100%); border-radius: 16px; box-shadow: 0 8px 32px rgba(255,215,0,0.13), 0 1.5px 8px rgba(0,0,0,0.18); border: 2px solid #4a4d64; opacity: 0; transform: translateX(80px); transition: opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1); position:relative; overflow:hidden;">
+  <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: radial-gradient(circle, rgb(255, 0, 221) 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+  <h2 style="color: #ffd900; font-family: 'Palatino Linotype', serif; font-size: 2em; text-align: center; margin-bottom: 20px; letter-spacing: 2px; text-shadow: 2px 2px 8px #222;">
+    <span style="font-size:1.2em; vertical-align:middle; animation: glow 1.2s infinite alternate;">&#128161;</span>
+    <span style="animation: fadeInText 1.5s ease-in;">My Specialties</span>
+    <style>
+    @keyframes glow {
+      from { text-shadow: 0 0 6px #ffd900, 0 0 12px #003cff; }
+      to { text-shadow: 0 0 18px #2f00ff, 0 0 32px #9dff00; }
+    }
+    @keyframes fadeInText {
+      from { opacity: 0; transform: translateY(16px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    </style>
+  </h2>
+  <p style="color: #fffbe6; font-size: 1.1em; text-align: center; margin-bottom: 24px;">
+    I specialize in creating high-quality digital solutions that are both functional and visually appealing. Here are some of my key areas of expertise:
+  </p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; justify-items: center;">
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img 
+        src="https://img.icons8.com/color/48/000000/web-design.png" 
+        alt="Web Design" 
+        id="specialty-web-design-img"
+        style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);"
+      >
+      <script>
+        function animateSpecialtyWebDesignImg() {
+          var el = document.getElementById('specialty-web-design-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyWebDesignImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyWebDesignImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyWebDesignImg);
+      </script>
+      <h3 id="specialty-web-design-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Web Design</h3>
+      <p id="specialty-web-design-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Modern, responsive, and user-focused layouts.</p>
+      <script>
+        function animateSpecialtyWebDesign() {
+          var title = document.getElementById('specialty-web-design-title');
+          var desc = document.getElementById('specialty-web-design-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyWebDesign);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyWebDesign);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyWebDesign);
+      </script>
+    </div>
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img 
+        src="https://img.icons8.com/color/48/000000/source-code.png" 
+        alt="Development" 
+        id="specialty-web-development-img"
+        style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);"
+      >
+      <script>
+        function animateSpecialtyWebDevelopmentImg() {
+          var el = document.getElementById('specialty-web-development-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyWebDevelopmentImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyWebDevelopmentImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyWebDevelopmentImg);
+      </script>
+      <h3 id="specialty-web-development-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Web Development</h3>
+      <p id="specialty-web-development-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Custom solutions using HTML, CSS, JS & frameworks.</p>
+      <script>
+        function animateSpecialtyWebDevelopment() {
+          var title = document.getElementById('specialty-web-development-title');
+          var desc = document.getElementById('specialty-web-development-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyWebDevelopment);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyWebDevelopment);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyWebDevelopment);
+      </script>
+    </div>
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img 
+        src="https://img.icons8.com/color/48/000000/paint-palette.png" 
+        alt="Graphic Design" 
+        id="specialty-graphic-design-img"
+        style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);"
+      >
+      <script>
+        function animateSpecialtyGraphicDesignImg() {
+          var el = document.getElementById('specialty-graphic-design-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyGraphicDesignImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyGraphicDesignImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyGraphicDesignImg);
+      </script>
+      <h3 id="specialty-graphic-design-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Graphic Design</h3>
+      <p id="specialty-graphic-design-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Creative visuals, branding, and UI/UX assets.</p>
+      <script>
+        function animateSpecialtyGraphicDesign() {
+          var title = document.getElementById('specialty-graphic-design-title');
+          var desc = document.getElementById('specialty-graphic-design-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyGraphicDesign);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyGraphicDesign);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyGraphicDesign);
+      </script>
+    </div>
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img src="https://img.icons8.com/color/48/000000/speed.png" alt="Performance" 
+        id="specialty-seo-performance-img"
+        style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <script>
+        function animateSpecialtySeoPerformanceImg() {
+          var el = document.getElementById('specialty-seo-performance-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+            window.removeEventListener('scroll', animateSpecialtySeoPerformanceImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtySeoPerformanceImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtySeoPerformanceImg);
+      </script>
+      <h3 id="specialty-seo-performance-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">SEO & Performance</h3>
+      <p id="specialty-seo-performance-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Optimized for speed, ranking, and accessibility.</p>
+      <script>
+        function animateSpecialtySeoPerformance() {
+          var title = document.getElementById('specialty-seo-performance-title');
+          var desc = document.getElementById('specialty-seo-performance-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtySeoPerformance);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtySeoPerformance);
+        window.addEventListener('DOMContentLoaded', animateSpecialtySeoPerformance);
+      </script>
+    </div>
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img src="https://img.icons8.com/color/48/000000/google-ads.png" alt="Digital Marketing" style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);" id="specialty-digital-marketing-img">
+      <script>
+        function animateSpecialtyDigitalMarketingImg() {
+          var el = document.getElementById('specialty-digital-marketing-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+            window.removeEventListener('scroll', animateSpecialtyDigitalMarketingImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyDigitalMarketingImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyDigitalMarketingImg);
+      </script>
+      <h3 id="specialty-digital-marketing-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Digital Marketing</h3>
+      <p id="specialty-digital-marketing-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Social media, campaigns, and analytics.</p>
+      <script>
+        function animateSpecialtyDigitalMarketing() {
+          var title = document.getElementById('specialty-digital-marketing-title');
+          var desc = document.getElementById('specialty-digital-marketing-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyDigitalMarketing);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyDigitalMarketing);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyDigitalMarketing);
+      </script>
+    </div>
+    <div style="background:rgba(34,34,34,0.93); border-radius:14px; box-shadow:0 4px 18px rgba(255,215,0,0.10); padding:18px 14px; text-align:center; width:100%; max-width:260px;">
+      <img src="https://img.icons8.com/color/48/000000/consultation.png" alt="Consulting" style="margin-bottom:12px; border-radius:8px; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);" id="specialty-consulting-img">
+      <script>
+        function animateSpecialtyConsultingImg() {
+          var el = document.getElementById('specialty-consulting-img');
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateX(0)';
+            window.removeEventListener('scroll', animateSpecialtyConsultingImg);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyConsultingImg);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyConsultingImg);
+      </script>
+      <h3 id="specialty-consulting-title" style="color:gold; font-size:1.1em; margin-bottom:8px; font-family:'Palatino Linotype',serif; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Consulting & Training</h3>
+      <p id="specialty-consulting-desc" style="color:#fffbe6; font-size:0.98em; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">Workshops, strategy, and team empowerment.</p>
+      <script>
+        function animateSpecialtyConsulting() {
+          var title = document.getElementById('specialty-consulting-title');
+          var desc = document.getElementById('specialty-consulting-desc');
+          if (!title || !desc) return;
+          var rect = title.getBoundingClientRect();
+          var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+          if (rect.top < windowHeight - 40) {
+        title.style.opacity = '1';
+        title.style.transform = 'translateX(0)';
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateSpecialtyConsulting);
+          }
+        }
+        window.addEventListener('scroll', animateSpecialtyConsulting);
+        window.addEventListener('DOMContentLoaded', animateSpecialtyConsulting);
+      </script>
+    </div>
+  </div>
+  <div style="position: absolute; bottom: -30px; left: -30px; width: 100px; height: 100px; background: radial-gradient(circle, #ff00ff 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+</section></div>
+<script>
+  function animateSpecialtiesSection() {
+    var el = document.getElementById('specialties-section');
+    if (!el) return;
+    var rect = el.getBoundingClientRect();
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < windowHeight - 40) {
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(0)';
+      window.removeEventListener('scroll', animateSpecialtiesSection);
+    }
   }
+  window.addEventListener('scroll', animateSpecialtiesSection);
+  window.addEventListener('DOMContentLoaded', animateSpecialtiesSection);
 </script>
 
+<!-- Add Footer -->
+<footer>
+  <div style="background: linear-gradient(90deg, #232323 60%, #353535 100%); padding: 28px 20px 20px 20px; border-radius: 16px; box-shadow: 0 4px 18px rgba(255,215,0,0.13), 0 2px 10px rgba(0,0,0,0.18); margin: 0 auto 18px auto; max-width: 900px; position: relative; overflow: hidden;">
+      <span style="font-size:1.5em; color:rgb(148, 95, 141); filter: drop-shadow(0 0 8px #ffd900); animation: starPulse 1.2s infinite alternate;">&#9733;</span>
+            <span style="font-size:1.5em; color:rgb(145, 139, 180); filter: drop-shadow(0 0 8px #ffd900); animation: starPulse 1.2s infinite alternate;">&#9733;</span>
+    <div style="position: absolute; top: -30px; left: -30px; width: 120px; height: 120px; background: radial-gradient(circle, gold 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+    <p style="color: #fffbe6; font-size: 1.18em; font-family: 'Palatino Linotype', serif; text-align: center; letter-spacing: 1px; margin-bottom: 10px; z-index: 1; position: relative; text-shadow: 2px 2px 8px #222; background: linear-gradient(90deg, #232323 60%, #353535 100%); border-radius: 12px; box-shadow: 0 2px 10px rgba(255,215,0,0.13); padding: 16px 28px; border: 2px solid rgb(53, 51, 43); display: inline-block;">
+
+      <span id="footer-animated-text" style="display:inline-block; white-space:nowrap; opacity:0; transform:translateX(80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1); font-weight:bold; letter-spacing:2px; font-size:1.15em; background: linear-gradient(90deg, #b16e6e 0%, #23c460 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+      Thank you for visiting my website!
+      </span>
+      <style>
+      @keyframes starPulse {
+        from { filter: drop-shadow(0 0 8px #ffd900); }
+        to { filter: drop-shadow(0 0 18px #ffb300); }
+      }
+      </style>
+      <script>
+      function animateFooterTextOnScroll() {
+        var el = document.getElementById('footer-animated-text');
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', animateFooterTextOnScroll);
+        }
+      }
+      window.addEventListener('scroll', animateFooterTextOnScroll);
+      window.addEventListener('DOMContentLoaded', animateFooterTextOnScroll);
+      </script>
+      <br>
+      <span style="font-size:1.1em; color:rgb(248, 240, 195); font-weight:bold; letter-spacing:1px;">
+      Feel free to explore my work and connect with me!
+    </p>
+          <span style="font-size:1.5em; color:rgb(148, 95, 141); filter: drop-shadow(0 0 8px #ffd900); animation: starPulse 1.2s infinite alternate;">&#9733;</span>
+            <span style="font-size:1.5em; color:rgb(145, 139, 180); filter: drop-shadow(0 0 8px #ffd900); animation: starPulse 1.2s infinite alternate;">&#9733;</span>
+    <div style="position: absolute; bottom: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, #ffd700 0%, transparent 80%); opacity: 0.10; z-index: 0;"></div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 18px;">
+    <div style="background: linear-gradient(120deg, #353535 60%, #232323 100%); border-radius: 12px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 12px 24px; min-width: 180px; text-align: center;">
+      <p style="color: #ffd700; font-size: 1em; font-family: 'Palatino Linotype', serif; text-align: center; margin: 0; letter-spacing: 0.5px;">
+      <span style="font-size:1.2em; vertical-align:middle;">&#128161;</span>
+      <span style="color:#fffbe6;">Stay inspired and keep creating!</span>
+      </p>
+    </div>
+    <div style="background: linear-gradient(120deg, #353535 60%, #232323 100%); border-radius: 12px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 12px 24px; min-width: 180px; text-align: center;">
+      <p id="footer-animate-left2" style="color: #fffbe6; font-size: 1em; font-family: 'Verdana', sans-serif; text-align: center; margin: 0; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <span style="color: #ffd700; font-size: 1.1em; animation: heartColor 1.2s infinite alternate;">&#10084;</span>
+      <style>
+        @keyframes heartColor {
+        from { color: #ffd700; }
+        to { color: #ff3c3c; }
+        }
+      </style>
+      Designed with <span style="color:gold; font-weight:bold;">passion</span> and <span style="color:gold; font-weight:bold;">creativity</span>.
+      <span style="color: #ffd700; font-size: 1.1em; animation: heartColor 1.2s infinite alternate;">&#10084;</span>
+      </p>
+    </div>
+    <div style="background: linear-gradient(120deg, #232323 60%, #353535 100%); border-radius: 12px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 12px 24px; min-width: 180px; text-align: center;">
+      <p id="footer-animate-left3" style="color: #fffbe6; font-size: 1em; font-family: 'Verdana', sans-serif; text-align: center; margin: 0; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      <a href="https://github.com/jahidads" target="_blank" style="color:gold; text-decoration:underline; font-weight:bold; font-size:1.08em; transition: color 0.3s;">
+        <img src="https://img.icons8.com/ios-filled/28/ffd700/github.png" alt="GitHub" style="vertical-align:middle; margin-right:8px; filter: drop-shadow(0 2px 6px #222);">
+        Visit my GitHub
+      </a>
+      </p>
+    </div>
+    <div style="background: linear-gradient(120deg, #232323 60%, #353535 100%); border-radius: 12px; box-shadow: 0 2px 10px rgba(255,215,0,0.10); padding: 12px 24px; min-width: 180px; text-align: center;">
+      <p id="footer-animate-left" style="color: #fffbe6; font-size: 1em; font-family: 'Verdana', sans-serif; text-align: center; margin: 0; letter-spacing: 0.5px; text-shadow: 1px 1px 6px #222; opacity:0; transform:translateX(-80px); transition:opacity 0.8s cubic-bezier(.4,2,.3,1), transform 0.8s cubic-bezier(.4,2,.3,1);">
+      &copy; 2025 <span style="color:gold; font-weight:bold;">My Traditional Website</span>.✔.
+      </p>
+    </div>
+    </div>
+  <script>
+    function animateFooterLeft(id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var rect = el.getBoundingClientRect();
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      if (rect.top < windowHeight - 40) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateX(0)';
+        window.removeEventListener('scroll', arguments.callee);
+      }
+    }
+    window.addEventListener('scroll', function() {
+      animateFooterLeft('footer-animate-left');
+      animateFooterLeft('footer-animate-left2');
+      animateFooterLeft('footer-animate-left3');
+    });
+    window.addEventListener('DOMContentLoaded', function() {
+      animateFooterLeft('footer-animate-left');
+      animateFooterLeft('footer-animate-left2');
+      animateFooterLeft('footer-animate-left3');
+    });
+  </script>
+</footer>
 </body>
 </html>
